@@ -1,4 +1,4 @@
-package com.iryna;
+package com.iryna.task1;
 
 import javax.swing.*;
 import java.awt.*;
