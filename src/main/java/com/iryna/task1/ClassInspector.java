@@ -11,7 +11,7 @@ public class ClassInspector {
             return "Class does not exists.";
         }
         // Get class information
-        return inspectedClass.getPackage().toString() + "\n" +
+        return inspectedClass.getPackage().toString() + ";\n" +
                 // Get class definition
                 getClassDefinition(inspectedClass) + " { \n" +
                 // Get class fields
@@ -28,7 +28,7 @@ public class ClassInspector {
         // Get modifiers
         sb.append(Modifier.toString(inspectedClass.getModifiers()));
         // Get name
-        sb.append(" ").append(inspectedClass.getSimpleName());
+        sb.append(" class ").append(inspectedClass.getSimpleName());
         // Get extended class
         boolean hasSuperClass = inspectedClass.getSuperclass() != null;
         if (hasSuperClass && !inspectedClass.getSuperclass().isHidden()) {
@@ -96,6 +96,8 @@ public class ClassInspector {
         for (Method method: inspectedClass.getDeclaredMethods()){
             sb.append("\t")
                     .append(Modifier.toString(method.getModifiers()))
+                    .append(" ")
+                    .append(method.getReturnType().getSimpleName())
                     .append(" ")
                     .append(method.getName())
                     .append("(");
